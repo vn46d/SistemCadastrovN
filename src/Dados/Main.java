@@ -10,7 +10,7 @@ public class Main {
         Scanner option = new Scanner(System.in);
         ArrayList<Cliente> clientes = new ArrayList<>();
 
-    boolean executando = true;
+        boolean executando = true;
 
         while (executando) {
 
@@ -55,14 +55,67 @@ public class Main {
                     break;
 
 
-                case "6":
-                    executando = false;
-                    System.out.println("Saindo...");
-                    break;
+                case "3":
 
-                default:
-                    System.out.println("Opção inválida.");
-            }
+                    System.out.println("Digite seu CPF:");
+
+                    String cpfBusca = option.nextLine();
+                    boolean encontrado = false;
+
+                    encontrado = false;
+
+                    for (Cliente c : clientes) {
+                        if (c.getCpf().equals(cpfBusca)) {
+                            encontrado = true;
+                            System.out.println("Nome: " + c.getNome());
+                            System.out.println("CPF: " + c.getCpf());
+                            System.out.println("Idade: " + c.getIdade());
+                            System.out.println("Telefone: " + c.getTelefone());
+                            System.out.println();
+                            break;
+                        }
+
+                        if (!encontrado == false)
+                            System.out.println("CPF Invalido.");
+
+                        break;
+                    }
+
+                case "4":
+
+                    System.out.println("Digite seu CPF:");
+
+                        encontrado = false;
+
+                    for (Cliente c : clientes) {
+                        if (c.getCpf().equals(c)) {
+                                encontrado = true;
+
+                                System.out.print("Novo nome: ");
+                                c.setNome(option.nextLine());
+
+                                System.out.println("Nova Idade: ");
+                                c.setIdade(option.nextInt());
+                                System.out.println("Novo Telefone: ");
+                                System.out.println();
+                                clientes.add(c);
+
+                                System.out.println("Cliente Recadastrado!");
+                            break;
+                        }
+                    break;
+}
+
+                    case "6":
+                        executando = false;
+                        System.out.println("Saindo...");
+                        break;
+
+                    default:
+                        System.out.println("Opção inválida.");
+                }
         }
     }
 }
+
+
