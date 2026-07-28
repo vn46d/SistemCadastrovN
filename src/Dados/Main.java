@@ -103,9 +103,10 @@ public class Main {
                             System.out.println("Cliente Recadastrado!");
                             break;
                         }
-                            case "5":
 
-                                System.out.println("Digite seu CPF:");
+
+                case "5":
+                        System.out.println("Digite seu CPF:");
 
                                 encontrado = false;
 
