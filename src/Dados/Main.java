@@ -85,37 +85,57 @@ public class Main {
 
                     System.out.println("Digite seu CPF:");
 
-                        encontrado = false;
+                    encontrado = false;
 
                     for (Cliente c : clientes) {
                         if (c.getCpf().equals(c)) {
-                                encontrado = true;
+                            encontrado = true;
 
-                                System.out.print("Novo nome: ");
-                                c.setNome(option.nextLine());
+                            System.out.print("Novo nome: ");
+                            c.setNome(option.nextLine());
 
-                                System.out.println("Nova Idade: ");
-                                c.setIdade(option.nextInt());
-                                System.out.println("Novo Telefone: ");
-                                System.out.println();
-                                clientes.add(c);
+                            System.out.println("Nova Idade: ");
+                            c.setIdade(option.nextInt());
+                            System.out.println("Novo Telefone: ");
+                            System.out.println();
+                            clientes.add(c);
 
-                                System.out.println("Cliente Recadastrado!");
+                            System.out.println("Cliente Recadastrado!");
                             break;
                         }
-                    break;
-}
+                            case "5":
 
-                    case "6":
-                        executando = false;
-                        System.out.println("Saindo...");
-                        break;
+                                System.out.println("Digite seu CPF:");
 
-                    default:
-                        System.out.println("Opção inválida.");
-                }
+                                encontrado = false;
+
+                                for (Cliente c : clientes) {
+                                    if (c.getCpf().equals(c)) {
+                                        encontrado = true;
+
+                                        System.out.print("Excluir Usuario Portador do CPF:"+ c.getCpf());
+                                        c.(option.nextLine());
+                                        System.out.println();
+                                        clientes.delet
+
+                                        System.out.println("Cliente Excluido com sucesso!");
+                                        break;
+                                    }
+                                    break;
+                                }
+                        }
+                        case "6":
+                            executando = false;
+                            System.out.println("Saindo...");
+                            break;
+
+                        default:
+                            System.out.println("Opção inválida.");
+                    }
+            }
         }
     }
 }
+
 
 
