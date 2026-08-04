@@ -1,5 +1,6 @@
 package Dados;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -84,11 +85,11 @@ public class Main {
                 case "4":
 
                     System.out.println("Digite seu CPF:");
-
-                    encontrado = false;
+                    String cpfRec = option.nextLine();
+                    boolean encontrado = false;
 
                     for (Cliente c : clientes) {
-                        if (c.getCpf().equals(c)) {
+                        if (c.getCpf().equals(cpfRec)) {
                             encontrado = true;
 
                             System.out.print("Novo nome: ");
@@ -97,46 +98,54 @@ public class Main {
                             System.out.println("Nova Idade: ");
                             c.setIdade(option.nextInt());
                             System.out.println("Novo Telefone: ");
-                            System.out.println();
-                            clientes.add(c);
-
-                            System.out.println("Cliente Recadastrado!");
+                            c.setTelefone(option.nextInt());
                             break;
                         }
+                    }
 
+                    if (!encontrado) {
+                        System.out.println("CPF não encontrado!");
+                        break;
+                    }
 
                 case "5":
-                        System.out.println("Digite seu CPF:");
+                    System.out.println("Digite seu CPF:");
+                    String cpfRem = option.nextLine();
 
-                                encontrado = false;
+                    boolean encontrado = false;
 
-                                for (Cliente c : clientes) {
-                                    if (c.getCpf().equals(c)) {
-                                        encontrado = true;
+                    for (Cliente c : clientes) {
+                        if (c.getCpf().equals(cpfRem)) {
 
-                                        System.out.print("Excluir Usuario Portador do CPF:"+ c.getCpf());
-                                        c.(option.nextLine());
-                                        System.out.println();
-                                        clientes.delet
+                            encontrado = true;
 
-                                        System.out.println("Cliente Excluido com sucesso!");
-                                        break;
-                                    }
-                                    break;
-                                }
-                        }
-                        case "6":
-                            executando = false;
-                            System.out.println("Saindo...");
+                            System.out.print("Excluir Usuario Portador do CPF:"+ c.getCpf());
+
+                            clientes.remove(c);
+
+
+                            System.out.println("Cliente Excluido com sucesso!");
                             break;
-
-                        default:
-                            System.out.println("Opção inválida.");
+                        }
                     }
+
+                    if (!encontrado){
+                        System.out.println("CPF Não Encontrado");
+                        break;
+                    }
+
+            case "6":
+                    executando = false;
+                    System.out.println("Saindo...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida.");
             }
         }
     }
 }
+
 
 
 
