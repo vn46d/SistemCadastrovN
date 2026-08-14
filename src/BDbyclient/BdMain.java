@@ -1,13 +1,12 @@
 package BDbyclient;
+import java.util.Scanner;
 
-public class bdMain {import java.util.Scanner;
-
-    public class Main {
+public class BdMain {
 
         public static void main(String[] args) {
 
             Scanner option = new Scanner(System.in);
-            Conta conta = new Conta();
+            Infconta.Conta conta = new Infconta.Conta();
 
             System.out.print("=======  Seja bem-vindo ao BancoVlux  =======");
             System.out.println();
@@ -19,7 +18,7 @@ public class bdMain {import java.util.Scanner;
             boolean executando = true;
 
             while (executando) {
-                Menu.mostrarMenu();
+                BdMenu.BdmostrarMenu();
                 String sel = option.nextLine();
 
 

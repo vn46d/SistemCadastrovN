@@ -3,7 +3,7 @@ package BDbyclient;
 public class Infconta {
 
 
-    public class Conta {
+    public static class Conta {
 
     private String titular;
     private double saldo;

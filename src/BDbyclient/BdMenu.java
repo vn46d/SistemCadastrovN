@@ -1,8 +1,11 @@
 package BDbyclient;
+import Dados.Menu;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public class bdMenu {public class Menu {
+public class BdMenu {
 
-    public static void mostrarMenu() {
+    public static void BdmostrarMenu() {
 
         System.out.println();
         System.out.println("====== BancoVlux ======");
@@ -17,5 +20,4 @@ public class bdMenu {public class Menu {
 
     }
 
-}
 }
