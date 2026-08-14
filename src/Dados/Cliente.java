@@ -1,15 +1,24 @@
 package Dados;
 
+import BDbyclient.Infconta;
+
 public class Cliente {
 
     private String nome;
     private String cpf;
     private int idade;
     private String telefone;
+    private Infconta.Conta conta;
 
+    public Infconta.Conta getConta() {
+        return conta;
+    }
 
+    public void setConta(Infconta.Conta conta) {
+        this.conta = conta;
+    }
 
-        public String getNome() {
+    public String getNome() {
         return nome;
     }
 
