@@ -15,10 +15,8 @@ public class UpdateBd {
     }
 
     public void depositar() {
-        float valor = 0;
         boolean encontrado = false;
         System.out.println("Digite seu CPF:");
-
         String cpfBusca = optionbd.nextLine();
 
         for (Cliente c : clientes)
@@ -29,16 +27,82 @@ public class UpdateBd {
                 System.out.println("Idade: " + c.getIdade());
                 System.out.println("Telefone: " + c.getTelefone());
                 System.out.println();
-                c.getConta().depositar(valor);
                 System.out.print("Valor do depósito: ");
                 double deposito = optionbd.nextDouble();
                 optionbd.nextLine();
-            }   if (!encontrado) {
+                c.getConta().depositar(deposito);
+                break;
+            }
+        if (!encontrado) {
             System.out.println("CPF não encontrado.");
             optionbd.nextDouble();
             optionbd.nextLine();
-
         }
     }
-}
 
+    public void verSaldo() {
+        boolean encontrado = false;
+        System.out.println("Digite seu CPF:");
+        String cpfBusca = optionbd.nextLine();
+
+        for (Cliente c : clientes)
+            if (c.getCpf().equals(cpfBusca)) {
+                encontrado = true;
+                System.out.println("Nome: " + c.getNome());
+                System.out.println("CPF: " + c.getCpf());
+                System.out.println("Saldo " + c.getConta().getSaldo());
+                break;
+            }
+        if (!encontrado) {
+            System.out.println("CPF não encontrado.");
+        }
+    }
+
+    public void Sacar() {
+        boolean encontrado = false;
+        System.out.println("Digite seu CPF:");
+        String cpfBusca = optionbd.nextLine();
+
+        for (Cliente c : clientes)
+            if (c.getCpf().equals(cpfBusca)) {
+                encontrado = true;
+                System.out.print("Valor do saque: ");
+                double sacar = optionbd.nextDouble();
+                optionbd.nextLine();
+                c.getConta().sacar(sacar);
+                break;
+            }
+        if (!encontrado) {
+            System.out.println("CPF não encontrado.");
+        }
+    }
+
+    public void transferir() {
+        Scanner d = new Scanner(System.in);
+        System.out.println("Digite o CPF de origem:");
+        String cpfOrigem = optionbd.nextLine();
+        System.out.println("Digite o CPF de destino:");
+        String cpfDestino = d.nextLine();
+        Cliente origem = null;
+        Cliente destino = null;
+
+        for (Cliente c : clientes) {
+            if (c.getCpf().equals(cpfOrigem)) {
+                origem = c;
+                System.out.println("DE: " + origem.getConta() + "PARA: " + destino.getConta());
+                break;
+            }
+        }
+
+        for (Cliente c : clientes) {
+                    if (c.getCpf().equals(cpfDestino)) {
+                        destino = c;
+                        System.out.println("DE: " + origem.getConta() + "PARA: " + destino.getConta());
+
+
+                        break;
+                    }
+        }
+    }
+
+}
