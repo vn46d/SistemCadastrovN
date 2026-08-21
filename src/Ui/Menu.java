@@ -1,4 +1,4 @@
-package Dados;
+package Ui;
 
 public class Menu {
       public static void mostrarMenu() {

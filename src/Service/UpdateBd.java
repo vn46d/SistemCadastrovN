@@ -1,5 +1,5 @@
-package Update;
-import Dados.Cliente;
+package Service;
+import Model.Cliente;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -30,7 +30,7 @@ public class UpdateBd {
                 System.out.print("Valor do depósito: ");
                 double deposito = optionbd.nextDouble();
                 optionbd.nextLine();
-                c.getConta().depositar(deposito);
+                c.getCont().depositar(deposito);
                 break;
             }
         if (!encontrado) {
@@ -49,7 +49,7 @@ public class UpdateBd {
                 encontrado = true;
                 System.out.println("Nome: " + c.getNome());
                 System.out.println("CPF: " + c.getCpf());
-                System.out.println("Saldo " + c.getConta().getSaldo());
+                System.out.println("Saldo " + c.getCont().getSaldo());
                 break;
             }
         if (!encontrado) {
@@ -69,7 +69,7 @@ public class UpdateBd {
                 System.out.print("Valor do saque: ");
                 double sacar = optionbd.nextDouble();
                 optionbd.nextLine();
-                c.getConta().sacar(sacar);
+                c.getCont().sacar(sacar);
                 break;
             }
         if (!encontrado) {
@@ -110,12 +110,12 @@ public class UpdateBd {
         double transferir = optionbd.nextDouble();
         optionbd.nextLine();
 
-        if (origem.getConta().sacar(transferir)) {
-            destino.getConta().depositar(transferir);
+        if (origem.getCont().sacar(transferir)) {
+            destino.getCont().depositar(transferir);
         }
-        destino.getConta().depositar(transferir);
+        destino.getCont().depositar(transferir);
 
         System.out.println("Transferência realizada com sucesso!");
-        System.out.println("DE: " + origem.getConta() + "PARA: " + destino.getConta());
+        System.out.println("DE: " + origem.getCont() + "PARA: " + destino.getCont());
     }
 }

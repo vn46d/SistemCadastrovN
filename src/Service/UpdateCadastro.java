@@ -1,6 +1,6 @@
-package Update;
+package Service;
 
-import Dados.Cliente;
+import Model.Cliente;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -44,8 +44,9 @@ public class UpdateCadastro {
         cliente.setTelefone(option.nextLine());
 
         clientes.add(cliente);
-
+        for (Cliente = 0) Cliente i++;
         System.out.println("Cliente cadastrado!");
+
 
 
     }

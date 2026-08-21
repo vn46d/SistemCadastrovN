@@ -1,6 +1,9 @@
-package Dados;
+package Ui;
 
-import Update.UpdateCadastro;
+import Model.Cliente;
+import Model.Conta;
+import Service.UpdateCadastro;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -61,7 +64,7 @@ public class Main {
         public static void main(String[] args) {
 
             Scanner option = new Scanner(System.in);
-            Infcontabd.Conta conta = new Infcontabd.Conta();
+            Conta.InfConta conta = new Conta.InfConta();
 
             System.out.print("=======  Seja bem-vindo ao BancoVlux  =======");
             System.out.println();

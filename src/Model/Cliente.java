@@ -1,5 +1,4 @@
-package Dados;
-import Dados.Infcontabd;
+package Model;
 
 public class Cliente {
 
@@ -7,13 +6,13 @@ public class Cliente {
     private String cpf;
     private int idade;
     private String telefone;
-    private Infcontabd.Conta conta;
+    private Conta.InfConta conta;
 
-    public Infcontabd.Conta getConta() {
+    public Conta.InfConta getCont() {
         return conta;
     }
 
-    public void setConta(Infcontabd.Conta conta) {
+    public void setConta(Conta.InfConta conta) {
         this.conta = conta;
     }
 

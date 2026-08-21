@@ -1,7 +1,7 @@
-package Dados;
+package Model;
 
-public class Infcontabd {
-    public static class Conta {
+public class Conta {
+    public static class InfConta {
 
         private String titular;
         private double saldo;
