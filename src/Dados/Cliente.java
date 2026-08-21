@@ -1,6 +1,5 @@
 package Dados;
-
-import BDbyclient.Infconta;
+import Dados.Infcontabd;
 
 public class Cliente {
 
@@ -8,13 +7,13 @@ public class Cliente {
     private String cpf;
     private int idade;
     private String telefone;
-    private Infconta.Conta conta;
+    private Infcontabd.Conta conta;
 
-    public Infconta.Conta getConta() {
+    public Infcontabd.Conta getConta() {
         return conta;
     }
 
-    public void setConta(Infconta.Conta conta) {
+    public void setConta(Infcontabd.Conta conta) {
         this.conta = conta;
     }
 
@@ -50,3 +49,4 @@ public class Cliente {
         this.telefone = telefone;
     }
 }
+

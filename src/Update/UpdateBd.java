@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class UpdateBd {
 
-    private ArrayList<Cliente> clientes;
-    private Scanner optionbd;
+    private final ArrayList<Cliente> clientes;
+    private final Scanner optionbd;
 
     public UpdateBd(ArrayList<Cliente> conta, Scanner option) {
         this.clientes = conta;
@@ -35,8 +35,7 @@ public class UpdateBd {
             }
         if (!encontrado) {
             System.out.println("CPF não encontrado.");
-            optionbd.nextDouble();
-            optionbd.nextLine();
+            return;
         }
     }
 
@@ -55,6 +54,7 @@ public class UpdateBd {
             }
         if (!encontrado) {
             System.out.println("CPF não encontrado.");
+            return;
         }
     }
 
@@ -74,35 +74,48 @@ public class UpdateBd {
             }
         if (!encontrado) {
             System.out.println("CPF não encontrado.");
+            return;
         }
     }
 
     public void transferir() {
-        Scanner d = new Scanner(System.in);
+        boolean encontrado = false;
         System.out.println("Digite o CPF de origem:");
         String cpfOrigem = optionbd.nextLine();
         System.out.println("Digite o CPF de destino:");
-        String cpfDestino = d.nextLine();
+        String cpfDestino = optionbd.nextLine();
+
         Cliente origem = null;
         Cliente destino = null;
 
         for (Cliente c : clientes) {
             if (c.getCpf().equals(cpfOrigem)) {
                 origem = c;
-                System.out.println("DE: " + origem.getConta() + "PARA: " + destino.getConta());
+                break;
+            }
+        }
+        for (Cliente c : clientes) {
+            if (c.getCpf().equals(cpfDestino)) {
+                destino = c;
                 break;
             }
         }
 
-        for (Cliente c : clientes) {
-                    if (c.getCpf().equals(cpfDestino)) {
-                        destino = c;
-                        System.out.println("DE: " + origem.getConta() + "PARA: " + destino.getConta());
-
-
-                        break;
-                    }
+        if (origem == null || destino == null) {
+            System.out.println("CPF de origem ou destino não encontrado.");
+            return;
         }
-    }
 
+        System.out.println("Digite o valor da transferencia: ");
+        double transferir = optionbd.nextDouble();
+        optionbd.nextLine();
+
+        if (origem.getConta().sacar(transferir)) {
+            destino.getConta().depositar(transferir);
+        }
+        destino.getConta().depositar(transferir);
+
+        System.out.println("Transferência realizada com sucesso!");
+        System.out.println("DE: " + origem.getConta() + "PARA: " + destino.getConta());
+    }
 }
