@@ -59,7 +59,7 @@ public class UpdateBd {
     }
 
     public void Sacar() {
-        boolean encontrado = false;
+        boolean encontrado = true;
         System.out.println("Digite seu CPF:");
         String cpfBusca = optionbd.nextLine();
 
@@ -72,6 +72,20 @@ public class UpdateBd {
                 c.getCont().sacar(sacar);
                 break;
             }
+            if ( <= 0) {
+                System.out.println("O valor do saque deve ser maior que zero.");
+                return false;
+
+            } else if (saldo >= valor) {
+                saldo -= valor;
+                System.out.println("Saque realizado!");
+                return true;
+
+            } else {
+                System.out.println("Saldo insuficiente.");
+                return false;
+            }
+
         if (!encontrado) {
             System.out.println("CPF não encontrado.");
             return;
@@ -111,7 +125,6 @@ public class UpdateBd {
         optionbd.nextLine();
 
         if (origem.getCont().sacar(transferir)) {
-            destino.getCont().depositar(transferir);
         }
         destino.getCont().depositar(transferir);
 

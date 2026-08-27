@@ -44,9 +44,7 @@ public class UpdateCadastro {
         cliente.setTelefone(option.nextLine());
 
         clientes.add(cliente);
-        for (Cliente = 0) Cliente i++;
         System.out.println("Cliente cadastrado!");
-
 
 
     }
@@ -66,8 +64,8 @@ public class UpdateCadastro {
                 System.out.println("Telefone: " + c.getTelefone());
                 System.out.println();
             }
-        if (!encontrado){
-            System.out.println("CPF não encontrado." );
+        if (!encontrado) {
+            System.out.println("CPF não encontrado.");
         }
     }
 
@@ -90,9 +88,9 @@ public class UpdateCadastro {
                 System.out.println("Novo Telefone: ");
                 c.setTelefone(option.nextLine());
             }
-            if (!encontrado) {
-                System.out.println("CPF não encontrado.");
-            }
+        }
+        if (!encontrado) {
+            System.out.println("CPF não encontrado.");
         }
     }
 
@@ -112,13 +110,13 @@ public class UpdateCadastro {
 
                 clientes.remove(i);
 
-
                 System.out.println("Cliente Excluido com sucesso!");
                 break;
             }
-            if (!encontrado) {
-                System.out.println("CPF invalido.");
-            }
+        }
+        if (!encontrado) {
+            System.out.println("CPF invalido.");
         }
     }
 }
+
