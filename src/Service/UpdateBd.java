@@ -72,20 +72,6 @@ public class UpdateBd {
                 c.getCont().sacar(sacar);
                 break;
             }
-            if ( <= 0) {
-                System.out.println("O valor do saque deve ser maior que zero.");
-                return false;
-
-            } else if (saldo >= valor) {
-                saldo -= valor;
-                System.out.println("Saque realizado!");
-                return true;
-
-            } else {
-                System.out.println("Saldo insuficiente.");
-                return false;
-            }
-
         if (!encontrado) {
             System.out.println("CPF não encontrado.");
             return;
@@ -125,10 +111,10 @@ public class UpdateBd {
         optionbd.nextLine();
 
         if (origem.getCont().sacar(transferir)) {
+            destino.getCont().depositar(transferir);
+            System.out.println("Transferência realizada com sucesso!");
+            System.out.println("DE: " + origem.getNome() + "PARA: " + destino.getNome()+".");
+            System.out.println("No Valor de:R$ "+ transferir + ".");
         }
-        destino.getCont().depositar(transferir);
-
-        System.out.println("Transferência realizada com sucesso!");
-        System.out.println("DE: " + origem.getCont() + "PARA: " + destino.getCont());
     }
 }

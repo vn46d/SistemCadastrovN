@@ -34,18 +34,17 @@ public class Conta {
             if (valor <= 0) {
 
                 System.out.println("O valor do saque deve ser maior que zero.");
-
+                return false;
             } else if (saldo >= valor) {
 
                 saldo -= valor;
                 System.out.println("Saque realizado!");
-
+                return true;
             } else {
 
                 System.out.println("Saldo insuficiente.");
-
+                return false;
             }
-            return false;
         }
 
         public void transferir(double valor) {
